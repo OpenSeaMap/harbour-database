@@ -4,46 +4,24 @@
  *******************************************************************************
  * ServerConnection.php
  *******************************************************************************
- * ServerConnection ist eine externe datei.
+ * This file contains all needed data for connecting to the harbour database
+ * Two tabels are needed for updating;
  *
- * Sie enthält die benötige Informationen für das Aufbauen einer Verbindung
+ * 	sg_Export	For writing the changed data
  *
- * serverName --> Der Server auf dem man zugreifen moechte
- *
- * user --> Benutzername
- *
- * password --> zugrifft rechte
- *
- * DatenbankName --> Die Datenbank auf der man zugreifen moechte
- *
- * Um die Tabelle skipperguide zu aktualizieren, braucht man 2 Tabellen
- *
- * 		Eine in der die aktuellste Daten gespeichert werden sein : sg_Export
- *
- *		eine zweite, die für die Logfile benutzt wird : logfile
+ *	logfile 	For the logfile
  *
  *******************************************************************************
 */
 	
 global $serverName, $user, $password, $DatenbankName, $sg_Export, $logfile;
 
-//Der Server auf dem man zugreifen moechte
 $serverName = 'serverName';
-
-//Benutzername
-$user = 'user';
-
-//zugrifft rechte auf der DB Server
+$user = 'userName';
 $password = 'password';
-
-//Die Datenbank auf der man zugreifen moechte
-$DatenbankName = 'databasename';
-
-// Exportierte Daten aus Skipperguide
-$sg_Export = 'tabelname';
-
-// logfile Tabelle
-$logfile = 'logfilename';
+$DatenbankName = 'databaseName';
+$sg_Export = 'tabelName';
+$logfile = 'logfileName';
 
 ?>
 
