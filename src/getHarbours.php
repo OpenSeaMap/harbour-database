@@ -1,22 +1,15 @@
 <?php
-	$maxSize=$_REQUEST["maxSize"];
 
 	global $db_host, $db_user, $db_pw, $db_name;
 	require('ServerConnection.php');
-  
+
 	$mysql = new mysqli($db_host, $db_user, $db_pw, $db_db);
-	if (array_key_exists("b",$_REQUEST)) {
-		$b=$mysql->real_escape_string($_REQUEST["b"]);
-		$l=$mysql->real_escape_string($_REQUEST["l"]);
-		$t=$mysql->real_escape_string($_REQUEST["t"]);
-		$r=$mysql->real_escape_string($_REQUEST["r"]);
-	} else {
-		$b="48.88692";
-		$l="-0.89535";
-		$t="50.93125";
-		$r="=2.92239";
-		$maxsize="3";
-	}
+
+	$b=$mysql->real_escape_string($_REQUEST["b"] ?: 48.88692);
+	$l=$mysql->real_escape_string($_REQUEST["l"] ?: -0.89535);
+	$t=$mysql->real_escape_string($_REQUEST["t"] ?: 50.93125);
+	$r=$mysql->real_escape_string($_REQUEST["r"] ?: 2.92239);
+	$maxSize=$_REQUEST["maxSize"] ?: 3;
 
 	if($maxSize>=5){
 	  $recset = $mysql->query("SELECT *,RAND() as rand FROM skipperguide WHERE $l<lon AND lon<$r AND $b<lat AND lat<$t ORDER BY rand LIMIT 100");
