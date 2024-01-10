@@ -4,24 +4,44 @@
  *******************************************************************************
  * ServerConnection.php
  *******************************************************************************
- * This file contains all needed data for connecting to the harbour database
- * Two tabels are needed for updating;
+ * ServerConnection ist eine externe datei.
  *
- * 	sg_Export	For writing the changed data
+ * Sie enthält die benötige Informationen für das Aufbauen einer Verbindung
  *
- *	logfile 	For the logfile
+ * serverName --> Der Server auf dem man zugreifen moechte
+ *
+ * user --> Benutzername
+ *
+ * password --> zugrifft rechte
+ *
+ * DatenbankName --> Die Datenbank auf der man zugreifen moechte
+ *
+ * Um die Tabelle skipperguide zu aktualizieren, braucht man 2 Tabellen
+ *
+ * 		Eine in der die aktuellste Daten gespeichert werden sein : sg_Export
+ *
+ *		eine zweite, die für die Logfile benutzt wird : logfile
  *
  *******************************************************************************
 */
 	
-global $serverName, $user, $password, $DatenbankName, $sg_Export, $logfile;
+global $db_host, $db_user, $db_pw, $db_db, $sg_Export, $logfile;
 
-$serverName = 'serverName';
-$user = 'userName';
-$password = 'password';
-$DatenbankName = 'databaseName';
-$sg_Export = 'tabelName';
-$logfile = 'logfileName';
+//Der Server auf dem man zugreifen moechte
+//$db_host = 'db.vm.smurf.noris.de';
+$db_host = getenv('db_host');
+//Benutzername
+$db_user = getenv('db_user');
+//zugrifft rechte auf der DB Server
+$db_pw = getenv('db_pw');
+//Die Datenbank auf der man zugreifen moechte
+$db_db = getenv('db_db');
+
+// Exportierte Daten aus Skipperguide
+$sg_Export = getenv('sg_export');
+
+// logfile Tabelle
+$logfile = getenv('logfile');
 
 ?>
 
