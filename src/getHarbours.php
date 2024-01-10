@@ -27,7 +27,7 @@
 	  $recset->close();
 	}
 
-	$recset = $mysql->query("SELECT *,RAND() as rand FROM WPI WHERE $l<lon AND lon<$r AND $b<lat AND lat<$t AND size<>\"\" ORDER BY size, rand LIMIT 100");
+	$recset = $mysql->query("SELECT *,RAND() as rand FROM wpi WHERE $l<lon AND lon<$r AND $b<lat AND lat<$t AND size<>\"\" ORDER BY size, rand LIMIT 100");
 
 	while($rec = $recset->fetch_object()) {
 	    echo "putHarbourMarker($rec->World_Port_Index, $rec->lon, $rec->lat, '".addslashes($rec->Main_port)."', '', $rec->size);\n";
